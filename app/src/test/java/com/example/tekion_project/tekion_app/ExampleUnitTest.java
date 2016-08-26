@@ -1,4 +1,5 @@
-package com.example.fuji_16.test_sound;
+//package com.example.fuji_16.test_sound;
+package com.example.tekion_project.tekion_app
 
 import org.junit.Test;
 

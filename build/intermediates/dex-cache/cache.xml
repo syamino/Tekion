@@ -61,14 +61,14 @@
         jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="603c43f7da3cf918b341630cf72e0e97988265b7">
+        sha1="4b2f469e7b0fc1f839ef1047406e1ee681b76183">
         <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_236f48d3e6c7397c0c55d20a0145270509940535/classes.dex" />
     </item>
     <item
         jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="d0bdde40d1d9efb034d78371ea4b3145f9681c70">
+        sha1="0c2b3d7b2cc837e3b306bc355188827aef112c96">
         <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2cc741d651dcbccbde753cb3da7728a349d9ed3a/classes.dex" />
     </item>
 
