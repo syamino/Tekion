@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/furukawahitomi/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_88fc9fc6f61ed3a1db8efb362f33d6ee7c3bf819/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.1.1_8151f4d22ccc6fed4dbfe83aeda391f5e3f64f6d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.1.1_bfef8083555918c1e66257a7912dd230ccef7588/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-8.1.0_e973d894d4775b8197003595589eda150efe99e0/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_a91abbc948620ab3786cb5a2451bdf928af23f88/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_16d297f3ee804d352cdac2819e2984b1bfaf26cf/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.1.1_d684dcea4e038d47c42a16beec91d90873695de8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.1.0_efc23f25d366592bd4d1504cce3f4dd427de33d1/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="603c43f7da3cf918b341630cf72e0e97988265b7">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_236f48d3e6c7397c0c55d20a0145270509940535/classes.dex" />
+    </item>
+    <item
+        jar="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d0bdde40d1d9efb034d78371ea4b3145f9681c70">
+        <dex dex="/Users/furukawahitomi/AndroidStudioProjects/Tekion/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2cc741d651dcbccbde753cb3da7728a349d9ed3a/classes.dex" />
+    </item>
+
+</items>
