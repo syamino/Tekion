@@ -69,17 +69,19 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     onResume();
                 }
                 textView.setText("適音開始");
-                textView2.setText("騒音量:"+SoundSwitch.max+"");
+               // textView2.setText("騒音量:"+SoundSwitch.max+"");
+                textView2.setText("騒音量:"+ (int)Math.ceil(SoundSwitch.average)+"");
                 //textView3.setText(String.valueOf(rokuon));
 
                 break;
             case R.id.stop_button:    //終了ボタン(id=stopbutton)が押された時
                 if (rokuon == true) {
-                    onPause();
+                   // onPause();騒音計算を終える
                 }
                 textView.setText("適音終了");
-                textView2.setText("騒音量:"+SoundSwitch.max+"");
-               // textView3.setText(String.valueOf(flag));
+               // textView2.setText("騒音量:"+SoundSwitch.max+"");
+                textView2.setText("騒音量:"+ (int)Math.ceil(SoundSwitch.average)+"");
+                // textView3.setText(String.valueOf(flag));
                 break;
 
         }
@@ -122,7 +124,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 @Override
                 public void run() {
                     TextView textView5=(TextView)findViewById(R.id.SouonText);//デバック用
-                    textView5.setText("騒音量:"+SoundSwitch.max+"");
+                    //textView5.setText("騒音量:"+SoundSwitch.max+"");
+                    textView5.setText("騒音量:"+ (int)Math.ceil(SoundSwitch.average)+"");
+
                 }
             });
         }
