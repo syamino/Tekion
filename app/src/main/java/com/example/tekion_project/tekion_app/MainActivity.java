@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         musicVol = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
 
 
-        mvol.setText(String.valueOf(""+musicMaxVol));
+        mvol.setText(String.valueOf(""+musicVol));
         curMusicVolTex.setText(String.valueOf(musicVol));
         textView3.setText("現在の騒音量を表示");
 
