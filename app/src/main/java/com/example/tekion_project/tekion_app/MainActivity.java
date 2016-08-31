@@ -339,9 +339,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
 
         // コントロールポイントが1個になってしまったら2個にする
         if(controlPoints.size() == 1){
-            double suitableVolume = controlPoints.get(0).suitableVolume;
-            double noiseVolume = controlPoints.get(0).noiseVolume + 1.0;
-            ControlPoint newControlPoint = new ControlPoint(noiseVolume, suitableVolume);
+            ControlPoint newControlPoint = new ControlPoint(controlPoints.get(0).suitableVolume, controlPoints.get(0).noiseVolume + 1.0);
             controlPoints.add(newControlPoint);
         }
 
