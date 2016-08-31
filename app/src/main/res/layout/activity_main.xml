@@ -53,7 +53,7 @@
         android:layout_above="@+id/crdb"
         android:layout_centerHorizontal="true">
 
-
+<!--
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-
+-->
         <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"

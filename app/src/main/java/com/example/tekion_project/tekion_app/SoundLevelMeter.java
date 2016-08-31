@@ -4,6 +4,7 @@ import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by lghpw_000 on 2016/08/28.
@@ -48,6 +49,15 @@ public class SoundLevelMeter implements Runnable {
 
     public void run() {
        if(MainActivity.thread_open!=true) {
+
+           MainActivity.mainHandler.post(new Runnable() {
+               @Override
+               public void run() {
+                   Toast.makeText(MainActivity.mainActInst, "音量調整スタート", Toast.LENGTH_LONG).show();
+               }
+
+           });
+
            temp = 0;
 
            bufferSize = 10*AudioRecord.getMinBufferSize(SAMPLE_RATE,
@@ -111,9 +121,18 @@ public class SoundLevelMeter implements Runnable {
            }
 
            //Log.d("audioRecord.stop();の上", "thread" + MainActivity.thread_open);
+
            audioRecord.stop();
            //Log.d("audioRecord.stop();の↓", "thread" + MainActivity.thread_open);
            audioRecord.release();
+
+           MainActivity.mainHandler.post(new Runnable() {
+               @Override
+               public void run() {
+                   Toast.makeText(MainActivity.mainActInst, "音量調整終了", Toast.LENGTH_LONG).show();
+               }
+
+           });
            if(MainActivity.thread_open==true){
                stop();
            }

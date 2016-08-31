@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.ArrayList;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SoundLevelMeter.SoundLevelMeterListener{
     private AudioManager audio;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
     //private double testh;
 
     static Handler mainHandler;
+    static MainActivity mainActInst;
+
 
 
     @Override
@@ -33,18 +36,21 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         soundLevelMeter = new SoundLevelMeter();
         TextView mvol = (TextView) findViewById(R.id.mvol);
         curMusicVolTex = (TextView) findViewById(R.id.crvol);
-        ContP =(TextView) findViewById(R.id.ContP);
+        //ContP =(TextView) findViewById(R.id.ContP);
         textView3 = (TextView) findViewById(R.id.crdb);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         musicMaxVol = audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         musicVol = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
 
+
         mvol.setText(String.valueOf(""+musicMaxVol));
         curMusicVolTex.setText(String.valueOf(musicVol));
         textView3.setText("現在の騒音量を表示");
 
         mainHandler = new Handler();
+        mainActInst = this;
+
 
         soundLevelMeter.setListener(this);
         //(new Thread(soundLevelMeter)).start();
@@ -98,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         musicVol = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
         curMusicVolTex.setText(String.valueOf(""+musicVol+""));
 
-        ContP.setText(readControlPoints().toString());//コントロールポイントデバック用
+       // ContP.setText(readControlPoints().toString());//コントロールポイントデバック用
 
     }
 
@@ -116,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
             //if(thread_open)
             adjustSuitableVolume(SoundLevelMeter.average,1);
             Log.d("コントロールポイントを変更", "騒音量/変更度/端末音量:" + (int)Math.ceil(SoundLevelMeter.average) +",+1,"+audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+            Log.d("コントロールポイント",""+readControlPoints().toString());
+
         }
 
         if(event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN){
@@ -124,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
             //if(thread_open)
             adjustSuitableVolume(SoundLevelMeter.average,-1);
             Log.d("コントロールポイントを変更","騒音量/変更度/端末音量:" + (int)Math.ceil(SoundLevelMeter.average) +",-1,"+audioManager.getStreamVolume(AudioManager.STREAM_MUSIC));
+            Log.d("コントロールポイント",""+readControlPoints().toString());
         }
 
         if(event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_MUTE){
@@ -185,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         controlPoints.add(indexOfNewControlPoint, new ControlPoint(noiseVolume, adjustedSuitableVolume));
 
         // 単調増加ルール（もしグラフが単調増加になっていなければ、違反しているコントロールポイントを削除する）
-        // monotoneIncreasingRule(controlPoints, adjustedSuitableVolume, indexOfNewControlPoint, delta);
+         monotoneIncreasingRule(controlPoints, adjustedSuitableVolume, indexOfNewControlPoint, delta);
 
         writeControlPoints(controlPoints);
     }
@@ -222,11 +231,10 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         editor.putString("controlPoints", controlPoints.toString());
         editor.commit();
     }
-
     // 排他距離内のコントロールポイントを削除
     public   void deleteTooCloseControlPoints(ArrayList<ControlPoint> controlPoints, double noiseVolume){
         // 排他距離の定数
-        double EXCLUSION_DISTANCE = 5.0;
+        double EXCLUSION_DISTANCE = 3.0;
 
         for(int i=0; i < controlPoints.size(); ++i){
             double distance = Math.abs(controlPoints.get(i).noiseVolume - noiseVolume);
@@ -293,10 +301,6 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
 
     // 単調増加ルール
     public   void monotoneIncreasingRule(ArrayList<ControlPoint> controlPoints, double suitableVolume, int indexOfNewControlPoint, int delta){
-        System.out.println(""+controlPoints);
-        System.out.println(""+suitableVolume);
-        System.out.println(""+indexOfNewControlPoint);
-        System.out.println(""+delta);
         // 適正音量を上げた場合
         if(0 < delta){
             // 右隣のコントロールポイントのインデックス
@@ -319,7 +323,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
             }
         }
         // 適正音量を下げた場合
-        if(delta < 0){
+        else if(delta < 0){
             while(true){
                 // 左隣のコントロールポイントのインデックス
                 int j = indexOfNewControlPoint - 1;
@@ -341,6 +345,22 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
             }
         }
 
+        // コントロールポイントが1個になってしまったら2個にする
+       if(controlPoints.size() == 1){
+            ControlPoint newControlPoint = new ControlPoint( controlPoints.get(0).noiseVolume + 1.0,controlPoints.get(0).suitableVolume);
+            controlPoints.add(newControlPoint);
+            Log.d("コントロールポイントを足した！！！！！！！！！",""+readControlPoints().toString());
+
+        }
+
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        if(thread_open == false) {
+            Toast.makeText(this, "音量調節がバックグラウンドで動作します.", Toast.LENGTH_LONG).show();
+        }
     }
 
 
