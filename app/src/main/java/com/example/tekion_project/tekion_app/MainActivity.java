@@ -346,7 +346,6 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         }
 
         // コントロールポイントが1個になってしまったら2個にする
-<<<<<<< HEAD
        if(controlPoints.size() == 1){
             ControlPoint newControlPoint = new ControlPoint( controlPoints.get(0).noiseVolume + 1.0,controlPoints.get(0).suitableVolume);
             controlPoints.add(newControlPoint);
@@ -362,13 +361,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
         if(thread_open == false) {
             Toast.makeText(this, "音量調節がバックグラウンドで動作します.", Toast.LENGTH_LONG).show();
         }
-=======
-        if(controlPoints.size() == 1){
-            ControlPoint newControlPoint = new ControlPoint(controlPoints.get(0).suitableVolume, controlPoints.get(0).noiseVolume + 1.0);
-            controlPoints.add(newControlPoint);
-        }
 
->>>>>>> f41580e7f03614ba0097fcabda1e9a0d5bd872c6
     }
 
 
