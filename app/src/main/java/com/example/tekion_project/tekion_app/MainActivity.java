@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
     // 排他距離内のコントロールポイントを削除
     public   void deleteTooCloseControlPoints(ArrayList<ControlPoint> controlPoints, double noiseVolume){
         // 排他距離の定数
-        double EXCLUSION_DISTANCE = 5.0;
+        double EXCLUSION_DISTANCE = 3.0;
 
         for(int i=0; i < controlPoints.size(); ++i){
             double distance = Math.abs(controlPoints.get(i).noiseVolume - noiseVolume);
@@ -293,10 +293,6 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
 
     // 単調増加ルール
     public   void monotoneIncreasingRule(ArrayList<ControlPoint> controlPoints, double suitableVolume, int indexOfNewControlPoint, int delta){
-        System.out.println(""+controlPoints);
-        System.out.println(""+suitableVolume);
-        System.out.println(""+indexOfNewControlPoint);
-        System.out.println(""+delta);
         // 適正音量を上げた場合
         if(0 < delta){
             // 右隣のコントロールポイントのインデックス
@@ -319,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
             }
         }
         // 適正音量を下げた場合
-        if(delta < 0){
+        else if(delta < 0){
             while(true){
                 // 左隣のコントロールポイントのインデックス
                 int j = indexOfNewControlPoint - 1;
@@ -339,6 +335,14 @@ public class MainActivity extends AppCompatActivity implements SoundLevelMeter.S
                 controlPoints.remove(j);
                 --indexOfNewControlPoint;
             }
+        }
+
+        // コントロールポイントが1個になってしまったら2個にする
+        if(controlPoints.size() == 1){
+    	    double suitableVolume = controlPoints.get(0).suitableVolume;
+        	double noiseVolume = controlPoints.get(0).noiseVolume + 1.0;
+        	ControlPoint newControlPoint = new ControlPoint(noiseVolume, suitableVolume);
+        	controlPoints.add(newControlPoint);
         }
 
     }
